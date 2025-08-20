@@ -1,4 +1,3 @@
---target=~/.config
---ignore=.stowrc
---ignore=DS_Store
---ignore=atuin/*
+--target=$HOME
+--verbose=2
+--restow

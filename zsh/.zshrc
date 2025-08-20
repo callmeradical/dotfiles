@@ -1,52 +1,9 @@
 # If you come from bash you might have to change your $PATH.
 #
 #
-devup() {
-  local tag=$1
-  shift
-
-  # Default to false
-  local enable_volumes=false
-  local args=()
-
-  # Parse options
-  while [[ $# -gt 0 ]]; do
-    case "$1" in
-      --volume-group|-v)
-        enable_volumes=true
-        shift
-        ;;
-      *)
-        args+=("$1")
-        shift
-        ;;
-    esac
-  done
-
-  local image="callmeradical/devenv:$tag"
-  local volumes="-v \"$(pwd)\":/workspace \
-    -v \"$HOME/.ssh:/root/.ssh:ro\" \
-    -v \"$HOME/.gitconfig:/root/.gitconfig:ro\" \
-    -v \"$HOME/.aws:/root/.aws:ro\" \
-    -v \"$HOME/.config/nvim:/root/.config/nvim:rw\""
-
-  if [ "$enable_volumes" = true ]; then
-    volumes="$volumes \
-    -v \"$HOME/.local/share/nvim/lazy:/root/.local/share/nvim/lazy:rw\" \
-    -v \"$HOME/.local/state/nvim:/root/.local/state/nvim:rw\" \
-    -v \"$HOME/.cache/nvim:/root/.cache/nvim:rw\""
-  fi
-
-  # Eval to expand the quoted volume string
-  eval docker run --hostname "dev-$tag" -it --rm \
-    $volumes \
-    "$image" "${args[@]}"
-}
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME=""
-
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+eval "$(fnm env)"
+export PATH=$HOME/bin:/usr/local/bin:$HOME/go/bin:$PATH
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -145,11 +102,10 @@ export TERM=tmux-256color
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-alias python="python3"
-alias vim="nvim"
+case "$LOCATION" in
+  work) [[ -f ~/.zsh_work ]] && source ~/.zsh_work ;;
+  home) [[ -f ~/.zsh_home ]] && source ~/.zsh_home ;;
+esac
 export PATH=/usr/local/anaconda3/bin:$PATH
 export PATH=/opt/homebrew/anaconda3/bin:$PATH
 
@@ -177,4 +133,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 eval "$(zoxide init zsh)"
-
+eval "$(fzf --zsh)"
+eval $(thefuck --alias fk)
+alias cd="z"
+eval "$(glyph --zsh)"
