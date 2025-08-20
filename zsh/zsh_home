@@ -1,0 +1,46 @@
+
+alias python="python3"
+alias vim="nvim"
+devup() {
+  local tag=$1
+  shift
+
+  # Default to false
+  local enable_volumes=false
+  local args=()
+
+  # Parse options
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      --volume-group|-v)
+        enable_volumes=true
+        shift
+        ;;
+      *)
+        args+=("$1")
+        shift
+        ;;
+    esac
+  done
+
+  local image="callmeradical/devenv:$tag"
+  local volumes="-v \"$(pwd)\":/workspace \
+    -v \"$HOME/.ssh:/root/.ssh:ro\" \
+    -v \"$HOME/.gitconfig:/root/.gitconfig:ro\" \
+    -v \"$HOME/.aws:/root/.aws:ro\" \
+    -v \"$HOME/.config/nvim:/root/.config/nvim:rw\""
+
+  if [ "$enable_volumes" = true ]; then
+    volumes="$volumes \
+    -v \"$HOME/.local/share/nvim/lazy:/root/.local/share/nvim/lazy:rw\" \
+    -v \"$HOME/.local/state/nvim:/root/.local/state/nvim:rw\" \
+    -v \"$HOME/.cache/nvim:/root/.cache/nvim:rw\""
+  fi
+
+  # Eval to expand the quoted volume string
+  eval docker run --hostname "dev-$tag" -it --rm \
+    $volumes \
+    "$image" "${args[@]}"
+}
+# Path to your oh-my-zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
