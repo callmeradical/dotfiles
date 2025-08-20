@@ -102,11 +102,10 @@ export TERM=tmux-256color
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-if [[ "$LOCATION" == "work" ]]; then
-  source ~/.zsh_work
-elif [[ "$LOCATION" == "home" ]]; then
-  source ~/.zsh_home
-fi
+case "$LOCATION" in
+  work) [[ -f ~/.zsh_work ]] && source ~/.zsh_work ;;
+  home) [[ -f ~/.zsh_home ]] && source ~/.zsh_home ;;
+esac
 export PATH=/usr/local/anaconda3/bin:$PATH
 export PATH=/opt/homebrew/anaconda3/bin:$PATH
 
