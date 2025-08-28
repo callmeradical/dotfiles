@@ -136,4 +136,3 @@ eval "$(zoxide init zsh)"
 eval "$(fzf --zsh)"
 eval $(thefuck --alias fk)
 alias cd="z"
-eval "$(glyph --zsh)"
