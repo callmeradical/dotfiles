@@ -152,8 +152,9 @@ export TERM=tmux-256color
 alias python="python3"
 alias vim="nvim"
 alias gohome="z '/Users/lcromley/OneDrive/OneDrive - Deloitte (O365D)/Second Brain'"
-export PATH=/usr/local/anaconda3/bin:$PATH
-export PATH=$PATH:/opt/homebrew/anaconda3/bin
+export PATH=/opt/homebrew/bin:/usr/local/anaconda3/bin:$PATH
+export NVM_DIR="$HOME/.nvm"
+
 #
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
