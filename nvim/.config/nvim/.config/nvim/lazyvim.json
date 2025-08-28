@@ -1,7 +1,10 @@
 {
   "extras": [
+<<<<<<< HEAD:nvim/lazyvim.json
     "lazyvim.plugins.extras.ai.copilot",
     "lazyvim.plugins.extras.ai.copilot-chat",
+=======
+>>>>>>> origin/main:nvim/.config/nvim/.config/nvim/lazyvim.json
     "lazyvim.plugins.extras.coding.mini-surround",
     "lazyvim.plugins.extras.dap.core",
     "lazyvim.plugins.extras.editor.mini-files",
@@ -12,9 +15,13 @@
     "lazyvim.plugins.extras.lang.helm",
     "lazyvim.plugins.extras.lang.json",
     "lazyvim.plugins.extras.lang.markdown",
+<<<<<<< HEAD:nvim/lazyvim.json
     "lazyvim.plugins.extras.lang.python",
     "lazyvim.plugins.extras.lang.sql",
     "lazyvim.plugins.extras.lang.terraform",
+=======
+    "lazyvim.plugins.extras.lang.toml",
+>>>>>>> origin/main:nvim/.config/nvim/.config/nvim/lazyvim.json
     "lazyvim.plugins.extras.lang.yaml",
     "lazyvim.plugins.extras.ui.dashboard-nvim",
     "lazyvim.plugins.extras.util.rest"

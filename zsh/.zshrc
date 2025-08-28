@@ -47,6 +47,7 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="arrow"
 
 export PATH=/usr/bin:$HOME/bin:/usr/local/bin:$PATH
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -154,7 +155,12 @@ alias vim="nvim"
 alias gohome="z '/Users/lcromley/OneDrive/OneDrive - Deloitte (O365D)/Second Brain'"
 export PATH=/opt/homebrew/bin:/usr/local/anaconda3/bin:$PATH
 export NVM_DIR="$HOME/.nvm"
-
+case "$LOCATION" in
+  work) [[ -f ~/.zsh_work ]] && source ~/.zsh_work ;;
+  home) [[ -f ~/.zsh_home ]] && source ~/.zsh_home ;;
+esac
+export PATH=/usr/local/anaconda3/bin:$PATH
+export PATH=/opt/homebrew/anaconda3/bin:$PATH
 #
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -180,4 +186,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 eval "$(zoxide init zsh)"
-
+eval "$(fzf --zsh)"
+eval $(thefuck --alias fk)
+alias cd="z"
+eval "$(glyph --zsh)"
