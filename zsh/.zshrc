@@ -4,6 +4,10 @@
 ZSH_THEME=""
 eval "$(fnm env)"
 export PATH=$HOME/bin:/usr/local/bin:$HOME/go/bin:$PATH
+export ZSH="$HOME/.oh-my-zsh"
+if [ -f "$ZSH/oh-my-zsh.sh" ]; then
+  source "$ZSH/oh-my-zsh.sh"
+fi
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -136,3 +140,11 @@ eval "$(zoxide init zsh)"
 eval "$(fzf --zsh)"
 eval $(thefuck --alias fk)
 alias cd="z"
+<<<<<<< HEAD
+=======
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/lars/.lmstudio/bin"
+# End of LM Studio CLI section
+
+>>>>>>> ee02649 (checking in these changes)
