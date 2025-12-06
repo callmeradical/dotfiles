@@ -11,10 +11,10 @@ if vim.v.shell_error ~= 0 then
 	vim.fn.getchar()
 	os.exit(1)
 end
+end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-<<<<<<< HEAD
   spec = {
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },

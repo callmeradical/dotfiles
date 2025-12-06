@@ -3,6 +3,7 @@
 #
 ZSH_THEME=""
 eval "$(fnm env)"
+eval "$(starship init zsh)"
 export PATH=$HOME/bin:/usr/local/bin:$HOME/go/bin:$PATH
 export ZSH="$HOME/.oh-my-zsh"
 if [ -f "$ZSH/oh-my-zsh.sh" ]; then
@@ -14,10 +15,6 @@ fi
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 # .zshrc
 # Pure prompt
-autoload -Uz promptinit
-promptinit
- prompt pure
-#
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -132,7 +129,6 @@ if [ -f "/Users/lars/miniforge3/etc/profile.d/mamba.sh" ]; then
 fi
 # <<< conda initialize <<<
 
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -140,11 +136,8 @@ eval "$(zoxide init zsh)"
 eval "$(fzf --zsh)"
 eval $(thefuck --alias fk)
 alias cd="z"
-<<<<<<< HEAD
-=======
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/lars/.lmstudio/bin"
 # End of LM Studio CLI section
 
->>>>>>> ee02649 (checking in these changes)
