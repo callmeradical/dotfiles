@@ -147,4 +147,8 @@ export PATH="$PATH:/Users/lars/.lmstudio/bin"
 
 =======
 eval "$(starship init zsh)"
+<<<<<<< HEAD
 >>>>>>> 799ca75 (updated prompt and starship config)
+=======
+export PATH="/Users/lcromley/.local/bin:$PATH"
+>>>>>>> 589d4fe (updating the setup)
