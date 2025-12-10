@@ -14,11 +14,6 @@ fi
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 # .zshrc
-<<<<<<< HEAD
-# Pure prompt
-=======
-#
->>>>>>> 799ca75 (updated prompt and starship config)
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -139,16 +134,6 @@ eval "$(zoxide init zsh)"
 eval "$(fzf --zsh)"
 eval $(thefuck --alias fk)
 alias cd="z"
-<<<<<<< HEAD
 
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/lars/.lmstudio/bin"
-# End of LM Studio CLI section
-
-=======
 eval "$(starship init zsh)"
-<<<<<<< HEAD
->>>>>>> 799ca75 (updated prompt and starship config)
-=======
 export PATH="/Users/lcromley/.local/bin:$PATH"
->>>>>>> 589d4fe (updating the setup)
