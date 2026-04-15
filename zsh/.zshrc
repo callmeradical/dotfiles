@@ -4,7 +4,7 @@
 ZSH_THEME=""
 eval "$(fnm env)"
 eval "$(starship init zsh)"
-export PATH=$HOME/bin:/usr/local/bin:$HOME/go/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:usr/local/bin:$HOME/go/bin:$PATH
 export ZSH="$HOME/.oh-my-zsh"
 if [ -f "$ZSH/oh-my-zsh.sh" ]; then
   source "$ZSH/oh-my-zsh.sh"
@@ -105,27 +105,8 @@ case "$LOCATION" in
   work) [[ -f ~/.zsh_work ]] && source ~/.zsh_work ;;
   home) [[ -f ~/.zsh_home ]] && source ~/.zsh_home ;;
 esac
-export PATH=/usr/local/anaconda3/bin:$PATH
-export PATH=/opt/homebrew/anaconda3/bin:$PATH
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/lars/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/lars/miniforge3/etc/profile.d/conda.sh" ]; then
-        . "/Users/lars/miniforge3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/lars/miniforge3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-
-if [ -f "/Users/lars/miniforge3/etc/profile.d/mamba.sh" ]; then
-    . "/Users/lars/miniforge3/etc/profile.d/mamba.sh"
-fi
-# <<< conda initialize <<<
+export GOPATH=$HOME/go/
+export PATH=$GOPATH:$PATH
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -133,7 +114,9 @@ export NVM_DIR="$HOME/.nvm"
 eval "$(zoxide init zsh)"
 eval "$(fzf --zsh)"
 eval $(thefuck --alias fk)
-alias cd="z"
 
 eval "$(starship init zsh)"
 export PATH="/Users/lcromley/.local/bin:$PATH"
+
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
+eval "$(zoxide init zsh)"
