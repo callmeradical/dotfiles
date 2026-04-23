@@ -1,9 +1,19 @@
-theme = catppuccin-mocha
-font-size = 19
-background-blur-radius = 20
+theme = Gotham
+font-family = JetBrains Mono
+font-size = 16
+background-blur-radius = 30
 mouse-hide-while-typing = true
-window-decoration = true
-# keybind = global:cmd+/=toggle_quick_terminal
+window-decoration = false
 macos-option-as-alt = true
-# background-opacity = 0.7
-# background-blur-radius = 20 
+macos-titlebar-style = hidden
+
+# Match wezterm keybinds
+keybind = ctrl+q=toggle_fullscreen
+keybind = ctrl+'=clear_screen
+
+# Reload config (Ctrl+Shift+R)
+keybind = ctrl+shift+r=reload_config
+
+# Ctrl-click opens links
+link-url = true
+
