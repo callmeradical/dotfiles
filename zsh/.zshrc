@@ -120,3 +120,6 @@ export PATH="/Users/lcromley/.local/bin:$PATH"
 
 if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
 eval "$(zoxide init zsh)"
+
+# Added by Antigravity
+export PATH="/Users/lars/.antigravity/antigravity/bin:$PATH"
