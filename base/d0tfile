@@ -1,0 +1,82 @@
+# base/d0tfile — d0t resource manifest
+# Every managed file, hook, and package is declared here.
+
+# ── shell ─────────────────────────────────────────────────────
+link   home/.zshrc
+link   home/.zshenv
+link   home/.zsh_home
+
+# ── terminal emulators ────────────────────────────────────────
+link   xdg/ghostty
+link   xdg/wezterm
+
+# ── editor ────────────────────────────────────────────────────
+link   xdg/nvim
+
+# ── shell tools ───────────────────────────────────────────────
+link   xdg/starship.toml
+link   xdg/nushell
+
+# ── terminal multiplexer ──────────────────────────────────────
+link   home/.tmux.conf
+link   xdg/tmux
+
+# ── new tools ─────────────────────────────────────────────────
+link   xdg/television/config.toml
+
+# ── ssh — copy, not link (apps rewrite symlinked ssh configs) ─
+copy   home/.ssh/config  mode=0600
+
+# ── lifecycle hooks ───────────────────────────────────────────
+hook   post-apply hooks/post-apply.sh
+
+# ── packages ─────────────────────────────────────────────────
+# formulae
+brew   act age awscli bat bc block-goose-cli brightness cmake copier
+brew   coreutils docker docker-compose docker-credential-helper
+brew   ffmpeg fnm fzf gawk gh glab glow gnu-sed go googleworkspace-cli
+brew   graphviz hadolint helm himalaya html2text hugo jq just k3d
+brew   lazygit libmicrohttpd marp-cli mise neovim nmap nowplaying-cli
+brew   nushell pandoc poetry postgresql@14 pv pure ripgrep rsync
+brew   shellcheck sonar-scanner starship stow syft terraform tmux
+brew   tree trivy uv virtualenv watch watchman wget worktrunk zoxide
+brew   zsh-completions
+
+# taps
+tap    anomalyco/tap
+tap    bnomei/tmux-mcp
+tap    callmeradical/tap
+tap    dopplerhq/cli
+tap    hashicorp/tap
+tap    homebrew/services
+tap    keith/formulae
+tap    loft-sh/tap
+tap    marcus/tap
+tap    peripheryapp/periphery
+tap    saihgupr/notificli
+
+# tap formulae
+brew   anomalyco/tap/opencode
+brew   bnomei/tmux-mcp/tmux-mcp-rs
+brew   callmeradical/tap/qtip
+brew   dopplerhq/cli/doppler
+brew   hashicorp/tap/nomad
+brew   hashicorp/tap/terraform
+brew   keith/formulae/reminders-cli
+brew   loft-sh/tap/vcluster
+brew   marcus/tap/sidecar
+brew   marcus/tap/td
+
+# casks
+cask   1password-cli@beta
+cask   basictex
+cask   block-goose
+cask   codex
+cask   font-monaspice-nerd-font
+cask   font-noto-sans-symbols-2
+cask   gemini
+cask   github
+cask   raycast
+cask   callmeradical/tap/ks-cli
+cask   saihgupr/notificli/notificli
+cask   peripheryapp/periphery/periphery
